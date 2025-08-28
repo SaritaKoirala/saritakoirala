@@ -240,35 +240,37 @@ img { vertical-align: middle; }
 
 /*===== Portfolio =====*/
 .portfolio-slider {
-  overflow: hidden;
-  position: relative;
   width: 100%;
+  overflow: hidden;
   background: #f9f9f9;
   padding: 20px 0;
+  position: relative;
 }
 
 .slide-track {
   display: flex;
-  width: calc(250px * 30); /* enough width for all slides */
   animation: scroll 40s linear infinite;
 }
 
 .slide {
-  width: 250px;
-  flex-shrink: 0;
-  margin: 0 10px;
+  flex: 0 0 auto; /* keep images side by side */
+  width: 200px;   /* adjust size */
+  margin: 0 15px;
 }
 
 .slide img {
   width: 100%;
+  height: auto;
+  display: block;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 @keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); } /* scroll left */
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* moves half the slides to loop */
 }
+
 
 
 /* ... (Portfolio) ... */
