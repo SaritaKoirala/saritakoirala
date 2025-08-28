@@ -1,230 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!--===== Font Awesome =====-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <!--===== Main CSS =====-->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-      <!--===== Navbar Start =====-->
-      <nav class="navbar">
-          <div class="container">
-              <div class="row justify-content-between">
-                  <div class="logo"><a href="index.html">My<span>Profile</span></a></div>
-                  <div class="links">
-                  <ul class="menu">
-                      <li class="nav-item"><a href="#home" class="nav-link active">Home <span></span></a></li>
-                      <li class="nav-item"><a href="#about" class="nav-link">About <span></span></a></li>
-                      <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio <span></span></a></li>
-                      <li class="nav-item"><a href="#contact" class="nav-link">Contact <span></span></a></li>
-                  </ul>
-                  </div>
-                  <div class="menu-btn">
-                      <i class="fas fa-bars"></i>
-                  </div>
-              </div>
-          </div>
-      </nav>
-      <!--===== Navbar End =====-->
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar">
+    <div class="logo">My Portfolio</div>
+    <div class="menu-btn">☰</div>
+    <ul class="menu links">
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#services" class="nav-link">Services</a></li>
+      <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+  </header>
 
-      <!--===== Home Section Start =====-->
-      <section class="home-section" id="home">
-          <ul class="header-social">
-              <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-              <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-              <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-          </ul>
-          <div class="container">
-              <div class="row align-items-center">
-                  <div class="home-text">
-                      <h4>Hello, Welcome to my profile</h4>
-                      <h1>Sarita Koirala</h1>
-                      <span>Fashion Designer</span>
-                      <p>I am grateful to Introduce myself as Miss Sarita Koirala...</p>
-                  </div>
-                  <div class="home-image">
-                      <div class="img-box">
-                          <img src="images/Me.jpg" alt="">
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="header-hero-shape"></div>
-      </section>
-      <!--===== Home Section End =====-->
+  <!-- ===== SECTIONS ===== -->
+  <section id="home">
+    <h1>Welcome to My Website</h1>
+  </section>
 
-      <!--===== About Section Start =====-->
-      <section class="about-section section-padding" id="about">
-          <div class="container">
-              <div class="row align-items-center justify-content-center">
-                  <div class="about-image">
-                      <div class="img-box">
-                          <img src="images/me2.jpg" alt="">
-                      </div>
-                  </div>
-                  <div class="about-content">
-                      <div class="section-title">
-                          <h3 class="main-title">About Me</h3>
-                          <ul class="line"><li></li><li></li><li></li></ul>
-                      </div>
-                      <p>Educational background, work experience, and skills here...</p>
-                  </div>
-              </div>
-          </div>
-      </section>
-      <!--===== About Section End =====-->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about-skills">
+      <div class="progress-line" data-progress="90%"></div>
+      <div class="progress-line" data-progress="70%"></div>
+      <div class="progress-line" data-progress="85%"></div>
+    </div>
+  </section>
 
-      <!--===== Portfolio Section Start =====-->
-      <section class="portfolio section-padding" id="portfolio">
-          <div class="container">
-              <div class="row">
-                  <div class="section-title text-align">
-                      <h5 class="sub-title">PORTFOLIO</h5>
-                      <h3 class="main-title">My work</h3>
-                      <ul class="line"><li></li><li></li><li></li></ul>
-                  </div>
-              </div>
+  <section id="services">
+    <h2>Services</h2>
+    <p>Web Design, Development, Branding...</p>
+  </section>
 
-              <div class="row">
-                  <!--===== Journey of Fashion =====-->
-                  <div class="portfolio-item">
-                      <div class="portfolio-item-inner">
-                          <div class="portfolio-slider">
-                              <div class="slides">
-                                  <img src="images/jof1.png" alt="">
-                                  <img src="images/jof2.jpg" alt="">
-                                  <img src="images/jof3.jpg" alt="">
-                                  <img src="images/jof4.jpg" alt="">
-                                  <img src="images/jof5.jpg" alt="">
-                              </div>
-                              <button class="prev">&#10094;</button>
-                              <button class="next">&#10095;</button>
-                          </div>
-                          <div class="portfolio-info">
-                              <h4>Journey of Fashion</h4>
-                              <div class="icon"><i class="fa fa-search"></i></div>
-                          </div>
-                      </div>
-                  </div>
+  <section id="portfolio">
+    <h2>Portfolio</h2>
+    <div class="portfolio-filter">
+      <span class="active" data-filter="all">All</span>
+      <span data-filter="web">Web</span>
+      <span data-filter="design">Design</span>
+    </div>
+    <div class="portfolio-items">
+      <div class="portfolio-item" data-category="web">
+        <div class="portfolio-img"><img src="img1.jpg" alt=""></div>
+        <h4>Project One</h4>
+      </div>
+      <div class="portfolio-item" data-category="design">
+        <div class="portfolio-img"><img src="img2.jpg" alt=""></div>
+        <h4>Project Two</h4>
+      </div>
+    </div>
+  </section>
 
-                  <!--===== Customer Happiness =====-->
-                  <div class="portfolio-item">
-                      <div class="portfolio-item-inner">
-                          <div class="portfolio-slider">
-                              <div class="slides">
-                                  <img src="images/c1.png" alt="">
-                                  <img src="images/c2.png" alt="">
-                                  <img src="images/c3.png" alt="">
-                                  <img src="images/c4.png" alt="">
-                              </div>
-                              <button class="prev">&#10094;</button>
-                              <button class="next">&#10095;</button>
-                          </div>
-                          <div class="portfolio-info">
-                              <h4>Customer Happiness</h4>
-                              <div class="icon"><i class="fa fa-search"></i></div>
-                          </div>
-                      </div>
-                  </div>
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: you@example.com</p>
+  </section>
 
-                  <!--===== Creative Mode =====-->
-                  <div class="portfolio-item">
-                      <div class="portfolio-item-inner">
-                          <div class="portfolio-slider">
-                              <div class="slides">
-                                  <img src="images/p1.png" alt="">
-                                  <img src="images/p2.png" alt="">
-                                  <img src="images/p3.jpg" alt="">
-                                  <img src="images/p4.png" alt="">
-                                  <img src="images/p5.jpg" alt="">
-                              </div>
-                              <button class="prev">&#10094;</button>
-                              <button class="next">&#10095;</button>
-                          </div>
-                          <div class="portfolio-info">
-                              <h4>Creative Mode</h4>
-                              <div class="icon"><i class="fa fa-search"></i></div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </section>
-      <!--===== Portfolio Section End =====-->
+  <!-- ===== SLIDESHOW SECTION (Bottom only) ===== -->
+  <section id="gallery-slider">
+    <h2>My Photo Memories</h2>
+    <div class="slider-container">
+      <div class="slide active">
+        <img src="slide1.jpg" alt="Slide 1">
+      </div>
+      <div class="slide">
+        <img src="slide2.jpg" alt="Slide 2">
+      </div>
+      <div class="slide">
+        <img src="slide3.jpg" alt="Slide 3">
+      </div>
 
-      <!--===== Contact Section Start =====-->
-      <section class="contact-section section-padding" id="contact">
-           <div class="container">
-              <div class="row">
-                  <div class="section-title text-align">
-                      <h5 class="sub-title">contact</h5>
-                      <h3 class="main-title">get in touch</h3>
-                      <ul class="line"><li></li><li></li></ul>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="contact-item">
-                      <div class="contact-item-inner">
-                          <i class="fas fa-envelope"></i>
-                          <span>Email</span>
-                          <p>koiralasaru306@gmail.com</p>
-                      </div>
-                  </div>
-                  <div class="contact-item">
-                      <div class="contact-item-inner">
-                          <i class="fas fa-map-marker-alt"></i>
-                          <span>Address</span>
-                          <p>Paris, France</p>
-                      </div>
-                  </div>
-              </div>
-           </div>
-       </section>
-       <!--===== Contact Section End =====-->
+      <!-- Controls -->
+      <button class="prev-btn">❮</button>
+      <button class="next-btn">❯</button>
+    </div>
+  </section>
 
-       <!--===== Footer Section Start =====-->
-       <footer class="footer">
-           <div class="container">
-               <div class="row justify-content-center">
-                   <p class="copyright-text">&copy; Thank You For Visiting My Profile</p>
-               </div>
-           </div>
-       </footer>
-       <!--===== Footer Section End =====-->
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>✨ Thank you for visiting ✨</p>
+  </footer>
 
-       <!--===== Main JS =====-->
-       <script>
-       document.querySelectorAll('.portfolio-slider').forEach(slider => {
-            let slides = slider.querySelectorAll('img');
-            let index = 0;
-
-            function showSlide(n) {
-                slides.forEach((img, i) => img.style.display = (i === n ? 'block' : 'none'));
-            }
-
-            slider.querySelector('.next').addEventListener('click', () => {
-                index = (index + 1) % slides.length;
-                showSlide(index);
-            });
-
-            slider.querySelector('.prev').addEventListener('click', () => {
-                index = (index - 1 + slides.length) % slides.length;
-                showSlide(index);
-            });
-
-            // auto slide every 3s
-            setInterval(() => {
-                index = (index + 1) % slides.length;
-                showSlide(index);
-            }, 3000);
-
-            showSlide(index); // init
-        });
-       </script>
+  <script src="script.js"></script>
 </body>
 </html>
