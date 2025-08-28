@@ -242,20 +242,20 @@ img { vertical-align: middle; }
 .portfolio-slider {
   width: 100%;
   overflow: hidden;
+  position: relative;
   background: #f9f9f9;
   padding: 20px 0;
-  position: relative;
 }
 
 .slide-track {
   display: flex;
-  animation: scroll 40s linear infinite;
+  transition: transform 0.5s ease;
 }
 
 .slide {
-  flex: 0 0 auto; /* keep images side by side */
-  width: 200px;   /* adjust size */
-  margin: 0 15px;
+  flex: 0 0 auto;
+  width: 220px;   /* adjust size */
+  margin: 0 10px;
 }
 
 .slide img {
@@ -266,10 +266,29 @@ img { vertical-align: middle; }
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-@keyframes scroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); } /* moves half the slides to loop */
+/* arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  z-index: 10;
 }
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}
+
 
 
 
@@ -293,5 +312,6 @@ footer .copyright-text {
 
 /*===== Responsive =====*/
 /* ... (kept as original, no changes) ... */
+
 
 
