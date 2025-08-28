@@ -60,28 +60,8 @@ function skillsEffect() {
 }
 window.addEventListener("scroll", skillsEffect);
 
-/*===== Portfolio Item Filter =====*/
-const track = document.querySelector(".slide-track");
-const slides = document.querySelectorAll(".slide");
-const prevBtn = document.querySelector(".arrow.left");
-const nextBtn = document.querySelector(".arrow.right");
+/*===== Portfolio Item Filter main page =====*/
 
-let index = 0;
-const slideWidth = slides[0].offsetWidth + 20; // width + margin
-
-nextBtn.addEventListener("click", () => {
-  if (index < slides.length - 1) {
-    index++;
-    track.style.transform = `translateX(${-index * slideWidth}px)`;
-  }
-});
-
-prevBtn.addEventListener("click", () => {
-  if (index > 0) {
-    index--;
-    track.style.transform = `translateX(${-index * slideWidth}px)`;
-  }
-});
 
 
 
@@ -129,5 +109,6 @@ lightbox.addEventListener("click", function (event) {
     toggleLightbox();
   }
 });
+
 
 
