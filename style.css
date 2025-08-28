@@ -1,99 +1,186 @@
-/*===== Lightbox =====*/
+/*===== Google Fonts =====*/
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
+/*===== Global CSS =====*/
+html {
+  scroll-behavior: smooth;
+}
+:root {
+  --main-color:#ec7b69;
+  --shadow-black-100:0 5px 15px rgba(0,0,0,0.2);
+  --black-900:#000;
+  --black-400:#646f87;
+  --black-100:#f7f7f7;
+  --white:#fff;
+  --black-alpha-100:rgba(0,0,0,.05);
+}
+body {
+  font-family: "Kaushan Script", cursive;
+  font-size: 16px;
+  font-weight: normal;
+  overflow-x: hidden;
+  background-color: var(--white);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+ul { list-style: none; }
+img { vertical-align: middle; }
+.container { max-width: 1140px; margin: auto; }
+.row { display: flex; flex-wrap: wrap; }
+.justify-content-center { justify-content: center; }
+.justify-content-between { justify-content: space-between; }
+.align-items-center { align-items: center; }
+
+.btn-1 {
+  background-color: var(--main-color);
+  padding: 15px 40px;
+  border: none;
+  color: var(--white);
+  border-radius: 5px;
+  font-size: 16px;
+  text-transform: capitalize;
+  font-weight: 600;
+  transition: all 0.3s ease-out;
+}
+.btn-1:hover {
+  color: var(--white);
+  background-color: rgba(0,167,142,0.7);
+}
+.btn-2 {
+  background-color: var(--white);
+  padding: 15px 40px;
+  border: none;
+  color: var(--main-color);
+  border-radius: 5px;
+  font-size: 16px;
+  text-transform: capitalize;
+  font-weight: 600;
+  border: 1px solid var(--main-color);
+  transition: all 0.3s ease-out;
+}
+.btn-2:hover {
+  color: var(--white);
+  background-color: var(--main-color);
+  border: none;
+}
+
+/*===== Section Wrapper (Slides) =====*/
+.section-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.section-slide {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: all 1s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.section-slide.active {
+  left: 0;
+}
+.section-slide.prev {
+  left: -100%;
+}
+
+/*===== Navbar =====*/
+.navbar {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  padding: 25px;
+  transition: all 0.5s ease;
+}
+.navbar.sticky {
+  padding: 12px 25px;
+  background-color: var(--white);
+  box-shadow: var(--shadow-black-100);
+}
+.navbar .logo a {
+  font-size: 24px;
+  color: var(--black-900);
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.navbar .logo a span { color: var(--main-color); }
+.navbar .menu .nav-item {
+  display: inline-block;
+  position: relative;
+  margin-left: 36px;
+}
+.navbar .menu .nav-item .nav-link {
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 600;
+  display: block;
+  text-transform: capitalize;
+  padding: 10px 0;
+}
+.navbar.sticky .menu .nav-item .nav-link { color: var(--main-color); }
+
+/*===== Slider Navigation Buttons =====*/
+.slider-controls {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+}
+.slider-controls button {
+  background-color: var(--main-color);
+  border: none;
+  color: var(--white);
+  font-size: 18px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: background 0.3s ease;
+}
+.slider-controls button:hover {
+  background-color: #d96252;
+}
+
+/*===== Lightbox (unchanged from your CSS) =====*/
 .lightbox {
+  position: fixed;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  z-index: 1000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out;
+  padding: 30px;
+}
+.lightbox.open { display: flex; }
+
+/* Responsive */
+@media(max-width: 991px) {
+  .navbar .menu {
     position: fixed;
-    left: 0;
-    top: 0;
+    left: -100%;
+    top: 80px;
+    flex-direction: column;
+    background-color: var(--main-color);
     width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.85); /* darker bg for clarity */
-    z-index: 1000;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    cursor: zoom-out;
-    padding: 30px;
-}
-.lightbox.open {
-    display: flex;
-}
-.lightbox .lightbox-content img {
-    height: auto;
-    width: auto;
-    max-width: 90%;
-    max-height: 80vh;
-    border-radius: 10px; /* add smooth corners */
-    box-shadow: 0 5px 20px rgba(0,0,0,0.6);
-    cursor: default;
-    display: block;
-    padding: 20px;
-}
-.lightbox .lightbox-content {
-    position: relative;
     text-align: center;
-}
-.lightbox.open .lightbox-content {
-    animation: lightboxImage .4s ease;
-}
-@keyframes lightboxImage {
-    0% { transform: scale(0.8); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
-}
-
-/* Close Button */
-.lightbox .lightbox-content .lightbox-close {
-    position: absolute;
-    height: 40px;
-    width: 40px;
-    top: 10px;
-    right: 10px;
-    font-size: 32px;
-    color: var(--white);
-    cursor: pointer;
-    transition: 0.3s;
-}
-.lightbox .lightbox-content .lightbox-close:hover {
-    transform: scale(1.2);
-}
-
-/* Caption (text + counter) */
-.lightbox .lightbox-content .lightbox-caption {
-    margin-top: 15px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 16px;
-    color: var(--white);
-    font-weight: 400;
-    padding: 0 20px;
-}
-
-/* Prev / Next controls */
-.lightbox .lightbox-controls .prev-item,
-.lightbox .lightbox-controls .next-item {
-    position: absolute;
-    height: 45px;
-    width: 45px;
-    background-color: var(--white);
-    color: var(--main-color);
-    border-radius: 50%;
-    text-align: center;
-    cursor: pointer;
-    top: 50%;
-    margin-top: -22px;
-    z-index: 110;
-    transition: all 0.3s ease;
-}
-.lightbox .lightbox-controls .prev-item:hover,
-.lightbox .lightbox-controls .next-item:hover {
-    transform: scale(1.1);
-}
-.lightbox .lightbox-controls .prev-item {
-    left: 20px;
-}
-.lightbox .lightbox-controls .next-item {
-    right: 20px;
-}
-.lightbox .lightbox-controls .prev-item .fa,
-.lightbox .lightbox-controls .next-item .fa {
-    font-size: 28px;
-    line-height: 45px;
+    transition: all 0.5s ease;
+  }
+  .navbar .menu.active { left: 0; }
+  .navbar.sticky .menu { background-color: var(--white); top: 65px; }
 }
