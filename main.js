@@ -64,25 +64,30 @@ window.addEventListener("scroll", skillsEffect);
 const FilterContainer = document.querySelector(".portfolio-filter");
 const filterBtns = FilterContainer ? FilterContainer.children : [];
 const PortfolioItems = document.querySelectorAll(".portfolio-item");
+const totalFilterBtn = filterBtns.length;
 const totalportfolioItem = PortfolioItems.length;
 
-for (let i = 0; i < filterBtns.length; i++) {
+for (let i = 0; i < totalFilterBtn; i++) {
   filterBtns[i].addEventListener("click", function () {
     FilterContainer.querySelector(".active").classList.remove("active");
     this.classList.add("active");
 
     const filterValue = this.getAttribute("data-filter");
-    PortfolioItems.forEach(item => {
-      if (filterValue === "all" || filterValue === item.getAttribute("data-category")) {
-        item.classList.remove("hide");
-        item.classList.add("show");
+
+    for (let k = 0; k < totalportfolioItem; k++) {
+      const category = PortfolioItems[k].getAttribute("data-category");
+
+      if (filterValue === "all" || filterValue === category) {
+        PortfolioItems[k].classList.remove("hide");
+        PortfolioItems[k].classList.add("show");
       } else {
-        item.classList.remove("show");
-        item.classList.add("hide");
+        PortfolioItems[k].classList.remove("show");
+        PortfolioItems[k].classList.add("hide");
       }
-    });
+    }
   });
 }
+
 
 /*===== Lightbox =====*/
 const lightbox = document.querySelector(".lightbox");
@@ -128,3 +133,4 @@ lightbox.addEventListener("click", function (event) {
     toggleLightbox();
   }
 });
+
