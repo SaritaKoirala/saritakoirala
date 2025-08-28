@@ -64,7 +64,6 @@ window.addEventListener("scroll", skillsEffect);
 const FilterContainer = document.querySelector(".portfolio-filter");
 const filterBtns = FilterContainer ? FilterContainer.children : [];
 const PortfolioItems = document.querySelectorAll(".portfolio-item");
-const totalportfolioItem = PortfolioItems.length;
 
 for (let i = 0; i < filterBtns.length; i++) {
   filterBtns[i].addEventListener("click", function () {
@@ -84,47 +83,61 @@ for (let i = 0; i < filterBtns.length; i++) {
   });
 }
 
-/*===== Lightbox =====*/
+/*===== Lightbox Slideshow for All Section Images =====*/
 const lightbox = document.querySelector(".lightbox");
 const lightboxImg = lightbox.querySelector(".lightbox-img");
 const lightboxClose = lightbox.querySelector(".lightbox-close");
 const lightboxText = lightbox.querySelector(".caption-text");
 const lightboxCounter = lightbox.querySelector(".caption-counter");
 
-let itemIndex = 0;
+// Collect ALL images inside sections
+const allSectionImages = document.querySelectorAll("section img");
+let slideIndex = 0;
 
-PortfolioItems.forEach((item, i) => {
-  item.addEventListener("click", () => {
-    itemIndex = i;
-    changeItem();
+// Open lightbox on image click
+allSectionImages.forEach((img, i) => {
+  img.addEventListener("click", () => {
+    slideIndex = i;
+    showSlide(slideIndex);
     toggleLightbox();
   });
 });
 
+function showSlide(index) {
+  if (index >= allSectionImages.length) slideIndex = 0;
+  if (index < 0) slideIndex = allSectionImages.length - 1;
+
+  const currentImg = allSectionImages[slideIndex];
+  lightboxImg.src = currentImg.src;
+  lightboxText.innerHTML = currentImg.alt || "Image";
+  lightboxCounter.innerHTML = (slideIndex + 1) + " of " + allSectionImages.length;
+}
+
 function nextItem() {
-  itemIndex = (itemIndex + 1) % totalportfolioItem;
-  changeItem();
+  slideIndex++;
+  showSlide(slideIndex);
 }
 
 function prevItem() {
-  itemIndex = (itemIndex - 1 + totalportfolioItem) % totalportfolioItem;
-  changeItem();
+  slideIndex--;
+  showSlide(slideIndex);
 }
 
 function toggleLightbox() {
   lightbox.classList.toggle("open");
 }
 
-function changeItem() {
-  const imgSrc = PortfolioItems[itemIndex].querySelector(".portfolio-img img").getAttribute("src");
-  lightboxImg.src = imgSrc;
-  lightboxText.innerHTML = PortfolioItems[itemIndex].querySelector("h4").innerHTML;
-  lightboxCounter.innerHTML = (itemIndex + 1) + " of " + totalportfolioItem;
-}
-
-// close lightbox
+// Close lightbox
 lightbox.addEventListener("click", function (event) {
   if (event.target === lightboxClose || event.target === lightbox) {
     toggleLightbox();
   }
+});
+
+// Keyboard support
+document.addEventListener("keydown", e => {
+  if (!lightbox.classList.contains("open")) return;
+  if (e.key === "ArrowRight") nextItem();
+  if (e.key === "ArrowLeft") prevItem();
+  if (e.key === "Escape") toggleLightbox();
 });
