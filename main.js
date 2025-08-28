@@ -95,6 +95,38 @@
                             PortfolioItems[k].classList.remove("hide");
                             PortfolioItems[k].classList.add("show");
                         }
+                           <script>
+const imagePaths = [
+  'images/jof1.png',
+  'images/jof2.jpg',
+  'images/jof3.jpg',
+  'images/jof4.jpg',
+  'images/jof5.jpg',
+  'images/jof6.jpg',
+  'images/jof7.jpg',
+  'images/jof8.jpg',
+  'images/jof9.jpg'
+];
+let currentSlide = 0;
+
+const slideImg = document.getElementById('slide-img');
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+
+function updateSlide() {
+  slideImg.src = imagePaths[currentSlide];
+}
+
+prevBtn.addEventListener('click', function() {
+  currentSlide = (currentSlide - 1 + imagePaths.length) % imagePaths.length;
+  updateSlide();
+});
+
+nextBtn.addEventListener('click', function() {
+  currentSlide = (currentSlide + 1) % imagePaths.length;
+  updateSlide();
+});
+</script>
                     }
                 })
             }
@@ -156,4 +188,5 @@
                      {
                         toggleLightbox()
                      }
+
                   })
