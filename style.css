@@ -240,46 +240,36 @@ img { vertical-align: middle; }
 
 /*===== Portfolio =====*/
 .portfolio-slider {
+  overflow: hidden;
   position: relative;
   width: 100%;
-  max-width: 700px;
-  margin: 20px auto;
-  overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  background: #f9f9f9;
+  padding: 20px 0;
+}
+
+.slide-track {
+  display: flex;
+  width: calc(250px * 30); /* enough width for all slides */
+  animation: scroll 40s linear infinite;
 }
 
 .slide {
-  display: none;
-  width: 100%;
+  width: 250px;
+  flex-shrink: 0;
+  margin: 0 10px;
 }
 
 .slide img {
   width: 100%;
-  display: block;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-.slide.active {
-  display: block;
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* scroll left */
 }
 
-.slider-controls {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  transform: translateY(-50%);
-}
-
-.slider-controls span {
-  cursor: pointer;
-  font-size: 2rem;
-  color: white;
-  background: rgba(0,0,0,0.4);
-  padding: 5px 10px;
-  border-radius: 5px;
-}
 
 /* ... (Portfolio) ... */
 
@@ -301,4 +291,5 @@ footer .copyright-text {
 
 /*===== Responsive =====*/
 /* ... (kept as original, no changes) ... */
+
 
