@@ -239,7 +239,49 @@ img { vertical-align: middle; }
 .service-section .service-item-inner:hover { background-color: var(--main-color); }
 
 /*===== Portfolio =====*/
-/* ... (kept as original) ... */
+.portfolio-slider {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.slide {
+  display: none;
+  width: 100%;
+}
+
+.slide img {
+  width: 100%;
+  display: block;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slider-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.slider-controls span {
+  cursor: pointer;
+  font-size: 2rem;
+  color: white;
+  background: rgba(0,0,0,0.4);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* ... (Portfolio) ... */
 
 /*===== Lightbox =====*/
 /* ... (kept as original) ... */
@@ -259,3 +301,4 @@ footer .copyright-text {
 
 /*===== Responsive =====*/
 /* ... (kept as original, no changes) ... */
+
