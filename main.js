@@ -61,32 +61,28 @@ function skillsEffect() {
 window.addEventListener("scroll", skillsEffect);
 
 /*===== Portfolio Item Filter =====*/
-const FilterContainer = document.querySelector(".portfolio-filter");
-const filterBtns = FilterContainer ? FilterContainer.children : [];
-const PortfolioItems = document.querySelectorAll(".portfolio-item");
-const totalFilterBtn = filterBtns.length;
-const totalportfolioItem = PortfolioItems.length;
+const track = document.querySelector(".slide-track");
+const slides = document.querySelectorAll(".slide");
+const prevBtn = document.querySelector(".arrow.left");
+const nextBtn = document.querySelector(".arrow.right");
 
-for (let i = 0; i < totalFilterBtn; i++) {
-  filterBtns[i].addEventListener("click", function () {
-    FilterContainer.querySelector(".active").classList.remove("active");
-    this.classList.add("active");
+let index = 0;
+const slideWidth = slides[0].offsetWidth + 20; // width + margin
 
-    const filterValue = this.getAttribute("data-filter");
+nextBtn.addEventListener("click", () => {
+  if (index < slides.length - 1) {
+    index++;
+    track.style.transform = `translateX(${-index * slideWidth}px)`;
+  }
+});
 
-    for (let k = 0; k < totalportfolioItem; k++) {
-      const category = PortfolioItems[k].getAttribute("data-category");
+prevBtn.addEventListener("click", () => {
+  if (index > 0) {
+    index--;
+    track.style.transform = `translateX(${-index * slideWidth}px)`;
+  }
+});
 
-      if (filterValue === "all" || filterValue === category) {
-        PortfolioItems[k].classList.remove("hide");
-        PortfolioItems[k].classList.add("show");
-      } else {
-        PortfolioItems[k].classList.remove("show");
-        PortfolioItems[k].classList.add("hide");
-      }
-    }
-  });
-}
 
 
 /*===== Lightbox =====*/
@@ -133,4 +129,5 @@ lightbox.addEventListener("click", function (event) {
     toggleLightbox();
   }
 });
+
 
