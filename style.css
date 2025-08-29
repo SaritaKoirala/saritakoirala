@@ -326,37 +326,54 @@ img { vertical-align: middle; }
 }
 
 
-.about-container .row {
+/* --- About Section Layout Just Like c0dewithus Portfolio --- */
+.about-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+.about-row {
   display: flex;
   align-items: flex-start;
   gap: 40px;
-  flex-wrap: wrap;
 }
-.about-image {
-  flex: 0 0 280px;
-  max-width: 320px;
+.about-img {
+  flex: 0 0 250px;
+  max-width: 250px;
 }
-.about-image .img-box img {
+.about-img img {
   width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  display: block;
 }
-.about-content {
-  flex: 1 1 320px;
+.about-info {
+  flex: 1 1 0;
   min-width: 0;
+  text-align: left;
 }
-@media (max-width: 900px) {
-  .about-container .row {
+.about-info h2 {
+  font-size: 2.2rem;
+  margin-bottom: 18px;
+}
+.about-info p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #444;
+}
+
+/* Responsive: Stack columns on small screens */
+@media (max-width: 800px) {
+  .about-row {
     flex-direction: column;
     align-items: center;
-    gap: 24px;
+    gap: 30px;
   }
-  .about-image, .about-content {
+  .about-img, .about-info {
     max-width: 100%;
     width: 100%;
   }
-  .about-content {
+  .about-info {
     text-align: center;
   }
 }
@@ -383,6 +400,7 @@ footer .copyright-text {
 
 /*===== Responsive =====*/
 /* ... (kept as original, no changes) ... */
+
 
 
 
