@@ -35,6 +35,25 @@ img { vertical-align: middle; }
 .justify-content-between { justify-content: space-between; }
 .align-items-center { align-items: center; }
 
+.about-photo {
+  width: 220px;             /* Fixed width, adjust as needed */
+  max-width: 40%;           /* Responsive: image never takes more than 40% of container */
+  height: auto;             /* Keeps image proportional */
+  border-radius: 12px;      /* Optional: rounded corners */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Optional: subtle shadow */
+}
+@media (max-width: 700px) {
+  .about-me-container {
+    flex-direction: column; /* Stack photo above text on mobile */
+    gap: 18px;
+    text-align: center;
+  }
+  .about-photo {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+}
+
 /* Buttons */
 .btn-1 {
     background-color: var(--main-color);
@@ -312,6 +331,7 @@ footer .copyright-text {
 
 /*===== Responsive =====*/
 /* ... (kept as original, no changes) ... */
+
 
 
 
