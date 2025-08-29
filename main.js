@@ -67,7 +67,23 @@ window.addEventListener("scroll", scrollActive);
 
 /*===== Portfolio Item Filter main page =====*/
 
+document.querySelectorAll('.portfolio-slider').forEach(function(slider) {
+  const slideTrack = slider.querySelector('.slide-track');
+  const slides = slider.querySelectorAll('.slide');
+  let currentIndex = 0;
 
+  function showSlide(index) {
+    if (index < 0) index = slides.length - 1;
+    if (index >= slides.length) index = 0;
+    slideTrack.style.transform = `translateX(-${index * 100}%)`;
+    currentIndex = index;
+  }
+
+  slider.querySelector('.arrow.left').onclick = () => showSlide(currentIndex - 1);
+  slider.querySelector('.arrow.right').onclick = () => showSlide(currentIndex + 1);
+
+  showSlide(0); // Show the first slide initially
+});
 
 
 /*===== Lightbox =====*/
@@ -114,6 +130,7 @@ lightbox.addEventListener("click", function (event) {
     toggleLightbox();
   }
 });
+
 
 
 
