@@ -42,6 +42,18 @@ function scrollActive() {
   });
 }
 window.addEventListener("scroll", scrollActive);
+/*===== Profile-Section =====*/
+.profile-section {
+  margin-bottom: 40px;
+  padding: 24px 16px;
+  background: #f9f9f9;
+  border-radius: 12px;
+}
+.section-title {
+  margin-bottom: 18px;
+  font-size: 1.3rem;
+  color: #333;
+}
 
 /*===== Skills Animation =====*/
       const skills_wrap = document.querySelector(".about-skills"),
@@ -130,6 +142,7 @@ lightbox.addEventListener("click", function (event) {
     toggleLightbox();
   }
 });
+
 
 
 
