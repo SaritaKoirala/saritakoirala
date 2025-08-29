@@ -29,28 +29,44 @@ body {
 }
 ul { list-style: none; }
 img { vertical-align: middle; }
-.container { max-width: 1140px; margin: auto; }
-.row { display: flex; flex-wrap: wrap; }
-.justify-content-center { justify-content: center; }
-.justify-content-between { justify-content: space-between; }
-.align-items-center { align-items: center; }
-
-.about-photo {
-  width: 220px;             /* Fixed width, adjust as needed */
-  max-width: 40%;           /* Responsive: image never takes more than 40% of container */
-  height: auto;             /* Keeps image proportional */
-  border-radius: 12px;      /* Optional: rounded corners */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Optional: subtle shadow */
+.about-container .row {
+  display: flex;
+  align-items: flex-start; /* Align tops of image and content */
+  gap: 40px;               /* Space between image and content */
+  flex-wrap: wrap;         /* Stack on small screens */
 }
-@media (max-width: 700px) {
-  .about-me-container {
-    flex-direction: column; /* Stack photo above text on mobile */
-    gap: 18px;
-    text-align: center;
+
+.about-image {
+  flex: 0 0 280px;         /* Fixed width for image column */
+  max-width: 320px;
+}
+
+.about-image .img-box img {
+  width: 100%;             /* Image fills the box */
+  height: auto;            /* Maintain aspect ratio */
+  display: block;
+  border-radius: 12px;     /* Optional: rounded corners */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10); /* Optional */
+}
+
+.about-content {
+  flex: 1 1 320px;         /* Fill remaining space */
+  min-width: 0;            /* Prevent overflow */
+}
+
+@media (max-width: 900px) {
+  .about-container .row {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
   }
-  .about-photo {
-    max-width: 80%;
-    margin: 0 auto;
+  .about-image,
+  .about-content {
+    max-width: 100%;
+    width: 100%;
+  }
+  .about-content {
+    text-align: center; /* Optional: center text on mobile */
   }
 }
 
@@ -331,6 +347,7 @@ footer .copyright-text {
 
 /*===== Responsive =====*/
 /* ... (kept as original, no changes) ... */
+
 
 
 
