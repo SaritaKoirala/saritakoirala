@@ -238,31 +238,29 @@
     
 </section>
 <script>
-document.querySelectorAll('.gallery-container').forEach(container => {
-  const slides = container.querySelectorAll('.slides img');
-  const slideCount = slides.length;
-  const slideTrack = container.querySelector('.slides');
-  let currentIndex = 0;
+window.onload = function() {
+  const track = document.querySelector(".slide-track");
+  const slides = document.querySelectorAll(".slide");
+  const prevBtn = document.querySelector(".arrow.left");
+  const nextBtn = document.querySelector(".arrow.right");
 
-  const updatePosition = index => {
-    const width = slides[0].clientWidth;
-    slideTrack.style.transform = `translateX(-${width * index}px)`;
-  };
+  let index = 0;
+  const slideWidth = slides[0].offsetWidth + 20; // width + margin
 
-  container.querySelector('.arrow.left').addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + slideCount) % slideCount;
-    updatePosition(currentIndex);
+  nextBtn.addEventListener("click", () => {
+    if (index < slides.length - 1) {
+      index++;
+      track.style.transform = `translateX(${-index * slideWidth}px)`;
+    }
   });
 
-  container.querySelector('.arrow.right').addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % slideCount;
-    updatePosition(currentIndex);
+  prevBtn.addEventListener("click", () => {
+    if (index > 0) {
+      index--;
+      track.style.transform = `translateX(${-index * slideWidth}px)`;
+    }
   });
-
-  // Optional: On window resize, update position properly
-  window.addEventListener('resize', () => updatePosition(currentIndex));
-});
-
+}
 </script>
 
   <!--===== Portfolio Section End =====-->
@@ -338,6 +336,7 @@ document.querySelectorAll('.gallery-container').forEach(container => {
   <script src="main.js"></script>
 </body>
 </html>
+
 
 
 
