@@ -238,31 +238,31 @@
     
 </section>
 <script>
-let slideIndex = 0;
-showSlides(slideIndex);
+document.querySelectorAll('.gallery-container').forEach(container => {
+  const slides = container.querySelectorAll('.slides img');
+  const slideCount = slides.length;
+  const slideTrack = container.querySelector('.slides');
+  let currentIndex = 0;
 
-document.querySelector(".left").addEventListener("click", () => {
-  showSlides(slideIndex -= 1);
+  const updatePosition = index => {
+    const width = slides[0].clientWidth;
+    slideTrack.style.transform = `translateX(-${width * index}px)`;
+  };
+
+  container.querySelector('.arrow.left').addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+    updatePosition(currentIndex);
+  });
+
+  container.querySelector('.arrow.right').addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % slideCount;
+    updatePosition(currentIndex);
+  });
+
+  // Optional: On window resize, update position properly
+  window.addEventListener('resize', () => updatePosition(currentIndex));
 });
 
-document.querySelector(".right").addEventListener("click", () => {
-  showSlides(slideIndex += 1);
-});
-
-function showSlides(n) {
-  let slides = document.querySelectorAll(".slides");
-
-  // loop back to first/last
-  if (n >= slides.length) {
-    slideIndex = 0;
-  }
-  if (n < 0) {
-    slideIndex = slides.length - 1;
-  }
-
-  slides.forEach(slide => slide.style.display = "none");
-  slides[slideIndex].style.display = "block";
-}
 </script>
 
   <!--===== Portfolio Section End =====-->
@@ -338,6 +338,7 @@ function showSlides(n) {
   <script src="main.js"></script>
 </body>
 </html>
+
 
 
 
