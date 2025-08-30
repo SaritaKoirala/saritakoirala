@@ -276,6 +276,7 @@ img { vertical-align: middle; }
 
 /*===== Portfolio =====*/
 .portfolio-slider {
+  align-items: left;
   position: relative;
   overflow: hidden;
 }
@@ -323,6 +324,7 @@ footer .copyright-text {
 
 /*===== Responsive =====*/
 /* ... (kept as original, no changes) ... */
+
 
 
 
