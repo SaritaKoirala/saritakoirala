@@ -281,7 +281,7 @@ img { vertical-align: middle; }
   position: relative;
   background: #f9f9f9;
   padding: 20px 0;
-  align-items: center;
+ 
 }
 
 .slide-track {
@@ -349,6 +349,7 @@ footer .copyright-text {
 
 /*===== Responsive =====*/
 /* ... (kept as original, no changes) ... */
+
 
 
 
