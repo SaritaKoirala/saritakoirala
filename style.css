@@ -276,55 +276,29 @@ img { vertical-align: middle; }
 
 /*===== Portfolio =====*/
 .portfolio-slider {
-  width: 100%;
-  overflow: hidden;
   position: relative;
-  background: #f9f9f9;
-  padding: 20px 0;
- 
+  overflow: hidden;
 }
-
-.slide-track {
+.slides {
   display: flex;
   transition: transform 0.5s ease;
 }
-
-.slide {
-  flex: 0 0 auto;
-  width: 220px;   /* adjust size */
-  margin: 0 10px;
-}
-
-.slide img {
+.slides img {
   width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  flex-shrink: 0;
 }
-
-/* arrows */
 .arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 2rem;
-  background: rgba(0,0,0,0.5);
-  color: #fff;
-  border: none;
   cursor: pointer;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
   padding: 10px;
-  border-radius: 50%;
-  z-index: 10;
 }
-
-.arrow.left {
-  left: 10px;
-}
-
-.arrow.right {
-  right: 10px;
-}
+.left { left: 10px; }
+.right { right: 10px; }
 
 
 
@@ -349,6 +323,7 @@ footer .copyright-text {
 
 /*===== Responsive =====*/
 /* ... (kept as original, no changes) ... */
+
 
 
 
