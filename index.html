@@ -236,28 +236,30 @@
 
 </section>
 <script>
-window.onload = function() {
-  const track = document.querySelector(".slide-track");
-  const slides = document.querySelectorAll(".slide");
-  const prevBtn = document.querySelector(".arrow.left");
-  const nextBtn = document.querySelector(".arrow.right");
+let slideIndex = 0;
+showSlides(slideIndex);
 
-  let index = 0;
-  const slideWidth = slides[0].offsetWidth + 20; // width + margin
+document.querySelector(".left").addEventListener("click", () => {
+  showSlides(slideIndex -= 1);
+});
 
-  nextBtn.addEventListener("click", () => {
-    if (index < slides.length - 1) {
-      index++;
-      track.style.transform = `translateX(${-index * slideWidth}px)`;
-    }
-  });
+document.querySelector(".right").addEventListener("click", () => {
+  showSlides(slideIndex += 1);
+});
 
-  prevBtn.addEventListener("click", () => {
-    if (index > 0) {
-      index--;
-      track.style.transform = `translateX(${-index * slideWidth}px)`;
-    }
-  });
+function showSlides(n) {
+  let slides = document.querySelectorAll(".slides");
+
+  // loop back to first/last
+  if (n >= slides.length) {
+    slideIndex = 0;
+  }
+  if (n < 0) {
+    slideIndex = slides.length - 1;
+  }
+
+  slides.forEach(slide => slide.style.display = "none");
+  slides[slideIndex].style.display = "block";
 }
 </script>
 
@@ -334,5 +336,6 @@ window.onload = function() {
   <script src="main.js"></script>
 </body>
 </html>
+
 
 
